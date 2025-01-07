@@ -42,7 +42,7 @@ FormCard.FormCardPage {
             checked: root.tile.tileData.showSeconds
             onCheckedChanged: {
                 root.tile.tileData.showSeconds = checked;
-                root.tile.tileData = root.tile.tileData;
+                root.tile.tileData = root.tile.tileData; // This is required fot tileData to be refreshed
             }
         }
     }

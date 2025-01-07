@@ -30,13 +30,13 @@ Item {
     property int minutes
     property int seconds
 
-    anchors.fill: parent
-    anchors.margins: Kirigami.Units.smallSpacing
+    anchors.fill: parent // Tile shou always fill the parent
+    anchors.margins: Kirigami.Units.smallSpacing // Recommnded. Creates the visible gap between tiles.
 
-    required property var metadata
-    required property var container
+    required property var metadata // Expose configuration values to the tile
+    required property var container // Contins the underline Tile item. See Tile.qml from TiledScreen. Most tiles would not have any use for this.
 
-    function activate () {}
+    function activate () {} // This function is called when the tile is clicked. Requires to be implmemnted, so an emoty function is used here.
 
     P5Support.DataSource {
         id: dataSource
