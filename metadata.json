@@ -1,0 +1,20 @@
+{
+    "name": "Binary Clock",
+    "plugin": "com.github.kavinunethsara.binaryclock",
+    "description": "Display time as a binary pattern",
+    "icon": "clock",
+    "main": "Tile.qml",
+    "config": "TileConfig.qml",
+    "preferredWidth": 5,
+    "preferredHeight": 3,
+    "defaults": {
+        "showBackground": true,
+        "roundedCorners": true,
+        "showSeconds": true,
+        "showOffLeds": false,
+        "useCustomColorForActive": false,
+        "useCustomColorForInactive": false,
+        "activeColor": "black",
+        "inactiveColor": "white"
+    }
+}
