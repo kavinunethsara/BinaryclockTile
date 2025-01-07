@@ -5,8 +5,8 @@
     "icon": "clock",
     "main": "Tile.qml",
     "config": "TileConfig.qml",
-    "preferredWidth": 5,
-    "preferredHeight": 3,
+    "preferredWidth": 3,
+    "preferredHeight": 2,
     "defaults": {
         "showBackground": true,
         "roundedCorners": true,
