@@ -1,5 +1,5 @@
 /*
- SPDX-FileCopyrightText: 2024 Kavinu Nethsara <kavinunethsarakoswattage@gmail.com>
+ SPDX-FileCopyrightText: 2025 Kavinu Nethsara <kavinunethsarakoswattage@gmail.com>
  SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
@@ -11,7 +11,7 @@ import QtQuick.Dialogs as Dialogs
 FormCard.FormCardPage {
     id: root
     anchors.fill: parent
-    required property var tile
+    required property variant config
 
     FormCard.FormHeader {
         title: "General"
@@ -19,30 +19,29 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormSpinBoxDelegate {
             label: "Width"
-            value: root.tile.model.tileWidth
+            value: config.width
             from: 1
             to: 100
             stepSize: 1
             onValueChanged: {
-                root.tile.model.tileWidth = value;
+                config.width = value
             }
         }
         FormCard.FormSpinBoxDelegate {
             label: "Height"
-            value: root.tile.model.tileHeight
+            value: config.height
             from: 1
             to: 100
             stepSize: 1
             onValueChanged: {
-                root.tile.model.tileHeight = value;
+                config.height = value
             }
         }
         FormCard.FormSwitchDelegate {
             text: "Show seconds"
-            checked: root.tile.tileData.showSeconds
+            checked: config.showSeconds
             onCheckedChanged: {
-                root.tile.tileData.showSeconds = checked;
-                root.tile.tileData = root.tile.tileData; // This is required fot tileData to be refreshed
+                config.showSeconds = checked
             }
         }
     }
@@ -55,63 +54,56 @@ FormCard.FormCardPage {
         FormCard.FormSwitchDelegate {
             id: showBackground
             text: "Show Background"
-            checked: root.tile.tileData.showBackground
+            checked: config.showBackground
             onCheckedChanged: {
-                root.tile.tileData.showBackground = checked;
-                root.tile.tileData = root.tile.tileData;
+                config.showBackground = checked
             }
         }
         FormCard.FormSwitchDelegate {
             text: "Rounded Corners"
             enabled: showBackground.checked
-            checked: root.tile.tileData.roundedCorners
+            checked: config.roundedCorners
             onCheckedChanged: {
-                root.tile.tileData.roundedCorners = checked;
-                root.tile.tileData = root.tile.tileData;
+                config.roundedCorners = checked
             }
         }
         FormCard.FormSwitchDelegate {
             text: "Show inactive LEDs"
-            checked: root.tile.tileData.showOffLeds
+            checked: config.showOffLeds
             onCheckedChanged: {
-                root.tile.tileData.showOffLeds = checked;
-                root.tile.tileData = root.tile.tileData;
+                config.showOffLeds = checked
             }
         }
         FormCard.FormSwitchDelegate {
             id: customActive
             text: "Custom active LED color"
-            checked: root.tile.tileData.useCustomColorForActive
+            checked: config.useCustomColorForActive
             onCheckedChanged: {
-                root.tile.tileData.useCustomColorForActive = checked;
-                root.tile.tileData = root.tile.tileData;
+                config.useCustomColorForActive = checked
             }
         }
         FormCard.FormColorDelegate {
             enabled: customActive.checked
             text: "Active LED Color"
-            color: root.tile.tileData.activeColor
+            color: config.activeColor
             onColorChanged: {
-                root.tile.tileData.activeColor = color.toString();
-                root.tile.tileData = root.tile.tileData;
+                config.activeColor = color.toString()
             }
         }
         FormCard.FormSwitchDelegate {
             id: customInactive
             text: "Custom active LED color"
-            checked: root.tile.tileData.useCustomColorForInactive
+            checked: config.useCustomColorForInactive
             onCheckedChanged: {
-                root.tile.tileData.useCustomColorForInactive = checked;
-                root.tile.tileData = root.tile.tileData;
+                config.useCustomColorForInactive = checked
             }
         }
         FormCard.FormColorDelegate {
             enabled: customInactive.checked
             text: "Active LED Color"
-            color: root.tile.tileData.inactiveColor
+            color: config.inactiveColor
             onColorChanged: {
-                root.tile.tileData.inactiveColor = color.toString();
-                root.tile.tileData = root.tile.tileData;
+                config.inactiveColor = color.toString()
             }
         }
     }
