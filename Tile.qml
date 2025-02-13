@@ -57,14 +57,19 @@ Item {
     }
 
     Rectangle {
-        visible: root.metadata.showBackground
+        id: background
+
         anchors.fill: parent
-        color: Kirigami.Theme.backgroundColor
+        border.width: root.metadata.borderWidth
+        border.color: main.onColor
+        color: root.metadata.showBackground? Kirigami.Theme.backgroundColor : "transparent"
         radius: root.metadata.roundedCorners ? Kirigami.Units.mediumSpacing : 0
     }
 
     ColumnLayout {
         anchors.fill: parent
+        anchors.margins: background.border.width
+
         Item {
             id: main
             Layout.fillHeight: true

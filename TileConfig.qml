@@ -67,6 +67,16 @@ FormCard.FormCardPage {
                 config.roundedCorners = checked
             }
         }
+        FormCard.FormSpinBoxDelegate {
+            label: "Border width"
+            stepSize: 1
+            from: 0
+            to: 100
+            value: config.borderWidth
+            onValueChanged: {
+                config.borderWidth = value
+            }
+        }
         FormCard.FormSwitchDelegate {
             text: "Show inactive LEDs"
             checked: config.showOffLeds

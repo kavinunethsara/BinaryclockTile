@@ -12,6 +12,7 @@
         "roundedCorners": true,
         "showSeconds": true,
         "showOffLeds": false,
+        "borderWidth": 0,
         "useCustomColorForActive": false,
         "useCustomColorForInactive": false,
         "activeColor": "black",
